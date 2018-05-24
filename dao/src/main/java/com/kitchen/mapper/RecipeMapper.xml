@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kitchen.com.kitchen.mapper.RecipeMapper">
+  <resultMap id="BaseResultMap" type="com.kitchen.pojo.Recipe">
+    <id column="recipe_id" jdbcType="BIGINT" property="recipeId" />
+    <result column="recipe_name" jdbcType="VARCHAR" property="recipeName" />
+    <result column="recipe_cooking_time" jdbcType="VARCHAR" property="recipeCookingTime" />
+    <result column="recipe_difficulty" jdbcType="TINYINT" property="recipeDifficulty" />
+    <result column="recipe_type_id" jdbcType="TINYINT" property="recipeTypeId" />
+    <result column="recipe_instruction" jdbcType="VARCHAR" property="recipeInstruction" />
+    <result column="recipe_img" jdbcType="VARCHAR" property="recipeImg" />
+    <result column="recipe_content" jdbcType="VARCHAR" property="recipeContent" />
+    <result column="recipe_creater_id" jdbcType="BIGINT" property="recipeCreaterId" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_motified" jdbcType="TIMESTAMP" property="gmtMotified" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    recipe_id, recipe_name, recipe_cooking_time, recipe_difficulty, recipe_type_id, recipe_instruction, 
+    recipe_img, recipe_content, recipe_creater_id, gmt_create, gmt_motified
+  </sql>
+  <select id="selectByExample" parameterType="com.kitchen.pojo.RecipeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from recipe
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from recipe
+    where recipe_id = #{recipeId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from recipe
+    where recipe_id = #{recipeId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kitchen.pojo.RecipeExample">
+    delete from recipe
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kitchen.pojo.Recipe">
+    insert into recipe (recipe_id, recipe_name, recipe_cooking_time, 
+      recipe_difficulty, recipe_type_id, recipe_instruction, 
+      recipe_img, recipe_content, recipe_creater_id, 
+      gmt_create, gmt_motified)
+    values (#{recipeId,jdbcType=BIGINT}, #{recipeName,jdbcType=VARCHAR}, #{recipeCookingTime,jdbcType=VARCHAR}, 
+      #{recipeDifficulty,jdbcType=TINYINT}, #{recipeTypeId,jdbcType=TINYINT}, #{recipeInstruction,jdbcType=VARCHAR}, 
+      #{recipeImg,jdbcType=VARCHAR}, #{recipeContent,jdbcType=VARCHAR}, #{recipeCreaterId,jdbcType=BIGINT}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtMotified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kitchen.pojo.Recipe">
+    insert into recipe
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recipeId != null">
+        recipe_id,
+      </if>
+      <if test="recipeName != null">
+        recipe_name,
+      </if>
+      <if test="recipeCookingTime != null">
+        recipe_cooking_time,
+      </if>
+      <if test="recipeDifficulty != null">
+        recipe_difficulty,
+      </if>
+      <if test="recipeTypeId != null">
+        recipe_type_id,
+      </if>
+      <if test="recipeInstruction != null">
+        recipe_instruction,
+      </if>
+      <if test="recipeImg != null">
+        recipe_img,
+      </if>
+      <if test="recipeContent != null">
+        recipe_content,
+      </if>
+      <if test="recipeCreaterId != null">
+        recipe_creater_id,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtMotified != null">
+        gmt_motified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recipeId != null">
+        #{recipeId,jdbcType=BIGINT},
+      </if>
+      <if test="recipeName != null">
+        #{recipeName,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeCookingTime != null">
+        #{recipeCookingTime,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeDifficulty != null">
+        #{recipeDifficulty,jdbcType=TINYINT},
+      </if>
+      <if test="recipeTypeId != null">
+        #{recipeTypeId,jdbcType=TINYINT},
+      </if>
+      <if test="recipeInstruction != null">
+        #{recipeInstruction,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeImg != null">
+        #{recipeImg,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeContent != null">
+        #{recipeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeCreaterId != null">
+        #{recipeCreaterId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtMotified != null">
+        #{gmtMotified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kitchen.pojo.RecipeExample" resultType="java.lang.Long">
+    select count(*) from recipe
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update recipe
+    <set>
+      <if test="record.recipeId != null">
+        recipe_id = #{record.recipeId,jdbcType=BIGINT},
+      </if>
+      <if test="record.recipeName != null">
+        recipe_name = #{record.recipeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipeCookingTime != null">
+        recipe_cooking_time = #{record.recipeCookingTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipeDifficulty != null">
+        recipe_difficulty = #{record.recipeDifficulty,jdbcType=TINYINT},
+      </if>
+      <if test="record.recipeTypeId != null">
+        recipe_type_id = #{record.recipeTypeId,jdbcType=TINYINT},
+      </if>
+      <if test="record.recipeInstruction != null">
+        recipe_instruction = #{record.recipeInstruction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipeImg != null">
+        recipe_img = #{record.recipeImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipeContent != null">
+        recipe_content = #{record.recipeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipeCreaterId != null">
+        recipe_creater_id = #{record.recipeCreaterId,jdbcType=BIGINT},
+      </if>
+      <if test="record.gmtCreate != null">
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtMotified != null">
+        gmt_motified = #{record.gmtMotified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update recipe
+    set recipe_id = #{record.recipeId,jdbcType=BIGINT},
+      recipe_name = #{record.recipeName,jdbcType=VARCHAR},
+      recipe_cooking_time = #{record.recipeCookingTime,jdbcType=VARCHAR},
+      recipe_difficulty = #{record.recipeDifficulty,jdbcType=TINYINT},
+      recipe_type_id = #{record.recipeTypeId,jdbcType=TINYINT},
+      recipe_instruction = #{record.recipeInstruction,jdbcType=VARCHAR},
+      recipe_img = #{record.recipeImg,jdbcType=VARCHAR},
+      recipe_content = #{record.recipeContent,jdbcType=VARCHAR},
+      recipe_creater_id = #{record.recipeCreaterId,jdbcType=BIGINT},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_motified = #{record.gmtMotified,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kitchen.pojo.Recipe">
+    update recipe
+    <set>
+      <if test="recipeName != null">
+        recipe_name = #{recipeName,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeCookingTime != null">
+        recipe_cooking_time = #{recipeCookingTime,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeDifficulty != null">
+        recipe_difficulty = #{recipeDifficulty,jdbcType=TINYINT},
+      </if>
+      <if test="recipeTypeId != null">
+        recipe_type_id = #{recipeTypeId,jdbcType=TINYINT},
+      </if>
+      <if test="recipeInstruction != null">
+        recipe_instruction = #{recipeInstruction,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeImg != null">
+        recipe_img = #{recipeImg,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeContent != null">
+        recipe_content = #{recipeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeCreaterId != null">
+        recipe_creater_id = #{recipeCreaterId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtMotified != null">
+        gmt_motified = #{gmtMotified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where recipe_id = #{recipeId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kitchen.pojo.Recipe">
+    update recipe
+    set recipe_name = #{recipeName,jdbcType=VARCHAR},
+      recipe_cooking_time = #{recipeCookingTime,jdbcType=VARCHAR},
+      recipe_difficulty = #{recipeDifficulty,jdbcType=TINYINT},
+      recipe_type_id = #{recipeTypeId,jdbcType=TINYINT},
+      recipe_instruction = #{recipeInstruction,jdbcType=VARCHAR},
+      recipe_img = #{recipeImg,jdbcType=VARCHAR},
+      recipe_content = #{recipeContent,jdbcType=VARCHAR},
+      recipe_creater_id = #{recipeCreaterId,jdbcType=BIGINT},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_motified = #{gmtMotified,jdbcType=TIMESTAMP}
+    where recipe_id = #{recipeId,jdbcType=BIGINT}
+  </update>
+</mapper>

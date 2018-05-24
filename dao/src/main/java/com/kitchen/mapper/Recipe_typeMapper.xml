@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kitchen.com.kitchen.mapper.Recipe_typeMapper">
+  <resultMap id="BaseResultMap" type="com.kitchen.pojo.Recipe_type">
+    <id column="recipe_type_id" jdbcType="TINYINT" property="recipeTypeId" />
+    <result column="recipe_type_name" jdbcType="VARCHAR" property="recipeTypeName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    recipe_type_id, recipe_type_name
+  </sql>
+  <select id="selectByExample" parameterType="com.kitchen.pojo.Recipe_typeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from recipe_type
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Byte" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from recipe_type
+    where recipe_type_id = #{recipeTypeId,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte">
+    delete from recipe_type
+    where recipe_type_id = #{recipeTypeId,jdbcType=TINYINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kitchen.pojo.Recipe_typeExample">
+    delete from recipe_type
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kitchen.pojo.Recipe_type">
+    insert into recipe_type (recipe_type_id, recipe_type_name)
+    values (#{recipeTypeId,jdbcType=TINYINT}, #{recipeTypeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kitchen.pojo.Recipe_type">
+    insert into recipe_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recipeTypeId != null">
+        recipe_type_id,
+      </if>
+      <if test="recipeTypeName != null">
+        recipe_type_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recipeTypeId != null">
+        #{recipeTypeId,jdbcType=TINYINT},
+      </if>
+      <if test="recipeTypeName != null">
+        #{recipeTypeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kitchen.pojo.Recipe_typeExample" resultType="java.lang.Long">
+    select count(*) from recipe_type
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update recipe_type
+    <set>
+      <if test="record.recipeTypeId != null">
+        recipe_type_id = #{record.recipeTypeId,jdbcType=TINYINT},
+      </if>
+      <if test="record.recipeTypeName != null">
+        recipe_type_name = #{record.recipeTypeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update recipe_type
+    set recipe_type_id = #{record.recipeTypeId,jdbcType=TINYINT},
+      recipe_type_name = #{record.recipeTypeName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kitchen.pojo.Recipe_type">
+    update recipe_type
+    <set>
+      <if test="recipeTypeName != null">
+        recipe_type_name = #{recipeTypeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where recipe_type_id = #{recipeTypeId,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kitchen.pojo.Recipe_type">
+    update recipe_type
+    set recipe_type_name = #{recipeTypeName,jdbcType=VARCHAR}
+    where recipe_type_id = #{recipeTypeId,jdbcType=TINYINT}
+  </update>
+</mapper>
