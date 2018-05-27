@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kitchen.com.kitchen.mapper.Recipe_typeMapper">
+<mapper namespace="com.kitchen.mapper.Recipe_typeMapper">
   <resultMap id="BaseResultMap" type="com.kitchen.pojo.Recipe_type">
     <id column="recipe_type_id" jdbcType="TINYINT" property="recipeTypeId" />
     <result column="recipe_type_name" jdbcType="VARCHAR" property="recipeTypeName" />

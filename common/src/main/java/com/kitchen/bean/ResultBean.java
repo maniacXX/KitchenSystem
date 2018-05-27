@@ -1,15 +1,19 @@
 package com.kitchen.bean;
 
 /**
- * @fileName: ResultBean
- * @author: chen
- * @date: 2018/5/18 18:10
- * @description: controller的返回值
+ * @author chen
+ * @date 2018/5/18 18:10
  */
 public class ResultBean {
-	public static final int SUCCESS = 1;
-	public static final int FAILURE = 2;
 
+
+	public static final int SUCCESS = 0;
+
+	public static final int CHECK_FAIL = 1;
+
+	public static final int NO_LOGIN = 2;
+
+	public static final int NO_PERMISSION = 3;
 	/**
 	 * 状态码
 	 */
@@ -24,22 +28,28 @@ public class ResultBean {
 	 */
 	private Object data;
 
-	public ResultBean() {
-	}
-
-	public ResultBean(int code, String msg, Object data) {
+	private ResultBean(int code, String msg, Object data) {
 		this.code = code;
 		this.msg = msg;
 		this.data = data;
 	}
 
-	public static ResultBean success(String msg, Object data) {
-		return new ResultBean(SUCCESS, msg, data);
+	public static ResultBean success(Object data) {
+		return new ResultBean(SUCCESS, "SUCCESS", data);
 	}
 
-	public static ResultBean fail(String msg, Object data) {
-		return new ResultBean(FAILURE, msg, data);
+	public static ResultBean checkFail(Object data) {
+		return new ResultBean(CHECK_FAIL, "CHECK_FAIL", data);
 	}
+
+	public static ResultBean noLogin(Object data) {
+		return new ResultBean(NO_LOGIN, "NO_LOGIN", data);
+	}
+
+	public static ResultBean noPermission(Object data) {
+		return new ResultBean(NO_PERMISSION, "NO_PERMISSION", data);
+	}
+
 
 	public int getCode() {
 		return code;
