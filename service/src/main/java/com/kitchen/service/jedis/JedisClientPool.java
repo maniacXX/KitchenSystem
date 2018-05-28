@@ -34,8 +34,6 @@ public class JedisClientPool implements JedisClient {
 		return result;
 	}
 
-
-
 	@Override
 	public Long expire(String key, int seconds) {
 		Jedis jedis = jedisPool.getResource();

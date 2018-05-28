@@ -3,14 +3,14 @@ package com.kitchen.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Recipe_typeExample {
+public class RecipeTypeExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public Recipe_typeExample() {
+    public RecipeTypeExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

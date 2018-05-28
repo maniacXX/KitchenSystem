@@ -10,7 +10,7 @@ public class Admin {
     private Long adminId;
 
     @Pattern(regexp = "(^[a-zA-Z0-9_-]{6,16}$)|(^[\\u2E80-\\u9FFF]{2,5}$)"
-            , message = "管理员账号必须是2-5位中文或6-16位英文和数字的组合")
+            , message = "账号必须是2-5位中文或6-16位英文和数字的组合")
     private String adminName;
 
     @Pattern(regexp = "(^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$)"

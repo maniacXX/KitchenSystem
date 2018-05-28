@@ -635,63 +635,63 @@ public class RecipeExample {
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdIsNull() {
-            addCriterion("recipe_creater_id is null");
+        public Criteria andRecipeCreatorIdIsNull() {
+            addCriterion("recipe_creator_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdIsNotNull() {
-            addCriterion("recipe_creater_id is not null");
+        public Criteria andRecipeCreatorIdIsNotNull() {
+            addCriterion("recipe_creator_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdEqualTo(Long value) {
-            addCriterion("recipe_creater_id =", value, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdEqualTo(Long value) {
+            addCriterion("recipe_creator_id =", value, "recipeCreatorId");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdNotEqualTo(Long value) {
-            addCriterion("recipe_creater_id <>", value, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdNotEqualTo(Long value) {
+            addCriterion("recipe_creator_id <>", value, "recipeCreatorId");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdGreaterThan(Long value) {
-            addCriterion("recipe_creater_id >", value, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdGreaterThan(Long value) {
+            addCriterion("recipe_creator_id >", value, "recipeCreatorId");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("recipe_creater_id >=", value, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("recipe_creator_id >=", value, "recipeCreatorId");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdLessThan(Long value) {
-            addCriterion("recipe_creater_id <", value, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdLessThan(Long value) {
+            addCriterion("recipe_creator_id <", value, "recipeCreatorId");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdLessThanOrEqualTo(Long value) {
-            addCriterion("recipe_creater_id <=", value, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdLessThanOrEqualTo(Long value) {
+            addCriterion("recipe_creator_id <=", value, "recipeCreatorId");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdIn(List<Long> values) {
-            addCriterion("recipe_creater_id in", values, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdIn(List<Long> values) {
+            addCriterion("recipe_creator_id in", values, "recipeCreatorId");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdNotIn(List<Long> values) {
-            addCriterion("recipe_creater_id not in", values, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdNotIn(List<Long> values) {
+            addCriterion("recipe_creator_id not in", values, "recipeCreatorId");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdBetween(Long value1, Long value2) {
-            addCriterion("recipe_creater_id between", value1, value2, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdBetween(Long value1, Long value2) {
+            addCriterion("recipe_creator_id between", value1, value2, "recipeCreatorId");
             return (Criteria) this;
         }
 
-        public Criteria andRecipeCreaterIdNotBetween(Long value1, Long value2) {
-            addCriterion("recipe_creater_id not between", value1, value2, "recipeCreaterId");
+        public Criteria andRecipeCreatorIdNotBetween(Long value1, Long value2) {
+            addCriterion("recipe_creator_id not between", value1, value2, "recipeCreatorId");
             return (Criteria) this;
         }
 
@@ -755,63 +755,63 @@ public class RecipeExample {
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedIsNull() {
-            addCriterion("gmt_motified is null");
+        public Criteria andGmtModifiedIsNull() {
+            addCriterion("gmt_modified is null");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedIsNotNull() {
-            addCriterion("gmt_motified is not null");
+        public Criteria andGmtModifiedIsNotNull() {
+            addCriterion("gmt_modified is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedEqualTo(Date value) {
-            addCriterion("gmt_motified =", value, "gmtMotified");
+        public Criteria andGmtModifiedEqualTo(Date value) {
+            addCriterion("gmt_modified =", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedNotEqualTo(Date value) {
-            addCriterion("gmt_motified <>", value, "gmtMotified");
+        public Criteria andGmtModifiedNotEqualTo(Date value) {
+            addCriterion("gmt_modified <>", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedGreaterThan(Date value) {
-            addCriterion("gmt_motified >", value, "gmtMotified");
+        public Criteria andGmtModifiedGreaterThan(Date value) {
+            addCriterion("gmt_modified >", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedGreaterThanOrEqualTo(Date value) {
-            addCriterion("gmt_motified >=", value, "gmtMotified");
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified >=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedLessThan(Date value) {
-            addCriterion("gmt_motified <", value, "gmtMotified");
+        public Criteria andGmtModifiedLessThan(Date value) {
+            addCriterion("gmt_modified <", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedLessThanOrEqualTo(Date value) {
-            addCriterion("gmt_motified <=", value, "gmtMotified");
+        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified <=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedIn(List<Date> values) {
-            addCriterion("gmt_motified in", values, "gmtMotified");
+        public Criteria andGmtModifiedIn(List<Date> values) {
+            addCriterion("gmt_modified in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedNotIn(List<Date> values) {
-            addCriterion("gmt_motified not in", values, "gmtMotified");
+        public Criteria andGmtModifiedNotIn(List<Date> values) {
+            addCriterion("gmt_modified not in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedBetween(Date value1, Date value2) {
-            addCriterion("gmt_motified between", value1, value2, "gmtMotified");
+        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtMotifiedNotBetween(Date value1, Date value2) {
-            addCriterion("gmt_motified not between", value1, value2, "gmtMotified");
+        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
     }

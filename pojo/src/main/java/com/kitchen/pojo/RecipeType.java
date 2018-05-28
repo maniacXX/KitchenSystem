@@ -1,6 +1,6 @@
 package com.kitchen.pojo;
 
-public class Recipe_type {
+public class RecipeType {
     private Byte recipeTypeId;
 
     private String recipeTypeName;

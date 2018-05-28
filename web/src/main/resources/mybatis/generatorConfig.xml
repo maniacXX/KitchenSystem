@@ -4,7 +4,8 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="F:\apache-maven-3.5.2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+    <classPathEntry
+            location="F:\apache-maven-3.5.2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
     <context id="kitchen" targetRuntime="MyBatis3">
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
@@ -45,9 +46,10 @@
 
         <!-- 指定数据库表 -->
         <table tableName="recipe" domainObjectName="Recipe"/>
-        <table tableName="recipe_type" domainObjectName="Recipe_type"/>
-        <table tableName="tbl_user" domainObjectName="User"/>
-        <table tableName="tbl_admin" domainObjectName="Admin"/>
-
+        <!--
+            <table tableName="recipe_type" domainObjectName="RecipeType"/>
+            <table tableName="tbl_user" domainObjectName="User"/>
+            <table tableName="tbl_admin" domainObjectName="Admin"/>
+        -->
     </context>
 </generatorConfiguration>

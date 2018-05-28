@@ -113,6 +113,7 @@ public class UserServiceImpl implements UserService {
 		String md5Password = DigestUtils.md5DigestAsHex(user.getUserPassword().getBytes());
 		user.setUserPassword(md5Password);
 		user.setUsername(null);
+		user.setGmtModified(new Date());
 		return userMapper.updateByPrimaryKeySelective(user);
 	}
 

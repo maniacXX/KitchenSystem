@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kitchen.mapper.Recipe_typeMapper">
-  <resultMap id="BaseResultMap" type="com.kitchen.pojo.Recipe_type">
+<mapper namespace="com.kitchen.mapper.RecipeTypeMapper">
+  <resultMap id="BaseResultMap" type="com.kitchen.pojo.RecipeType">
     <id column="recipe_type_id" jdbcType="TINYINT" property="recipeTypeId" />
     <result column="recipe_type_name" jdbcType="VARCHAR" property="recipeTypeName" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List">
     recipe_type_id, recipe_type_name
   </sql>
-  <select id="selectByExample" parameterType="com.kitchen.pojo.Recipe_typeExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.kitchen.pojo.RecipeTypeExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -90,17 +90,17 @@
     delete from recipe_type
     where recipe_type_id = #{recipeTypeId,jdbcType=TINYINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.kitchen.pojo.Recipe_typeExample">
+  <delete id="deleteByExample" parameterType="com.kitchen.pojo.RecipeTypeExample">
     delete from recipe_type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.kitchen.pojo.Recipe_type">
+  <insert id="insert" parameterType="com.kitchen.pojo.RecipeType">
     insert into recipe_type (recipe_type_id, recipe_type_name)
     values (#{recipeTypeId,jdbcType=TINYINT}, #{recipeTypeName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.kitchen.pojo.Recipe_type">
+  <insert id="insertSelective" parameterType="com.kitchen.pojo.RecipeType">
     insert into recipe_type
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="recipeTypeId != null">
@@ -119,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.kitchen.pojo.Recipe_typeExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.kitchen.pojo.RecipeTypeExample" resultType="java.lang.Long">
     select count(*) from recipe_type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -147,7 +147,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.kitchen.pojo.Recipe_type">
+  <update id="updateByPrimaryKeySelective" parameterType="com.kitchen.pojo.RecipeType">
     update recipe_type
     <set>
       <if test="recipeTypeName != null">
@@ -156,7 +156,7 @@
     </set>
     where recipe_type_id = #{recipeTypeId,jdbcType=TINYINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.kitchen.pojo.Recipe_type">
+  <update id="updateByPrimaryKey" parameterType="com.kitchen.pojo.RecipeType">
     update recipe_type
     set recipe_type_name = #{recipeTypeName,jdbcType=VARCHAR}
     where recipe_type_id = #{recipeTypeId,jdbcType=TINYINT}

@@ -19,11 +19,11 @@ public class Recipe {
 
     private String recipeContent;
 
-    private Long recipeCreaterId;
+    private Long recipeCreatorId;
 
     private Date gmtCreate;
 
-    private Date gmtMotified;
+    private Date gmtModified;
 
     public Long getRecipeId() {
         return recipeId;
@@ -89,12 +89,12 @@ public class Recipe {
         this.recipeContent = recipeContent == null ? null : recipeContent.trim();
     }
 
-    public Long getRecipeCreaterId() {
-        return recipeCreaterId;
+    public Long getRecipeCreatorId() {
+        return recipeCreatorId;
     }
 
-    public void setRecipeCreaterId(Long recipeCreaterId) {
-        this.recipeCreaterId = recipeCreaterId;
+    public void setRecipeCreatorId(Long recipeCreatorId) {
+        this.recipeCreatorId = recipeCreatorId;
     }
 
     public Date getGmtCreate() {
@@ -105,11 +105,11 @@ public class Recipe {
         this.gmtCreate = gmtCreate;
     }
 
-    public Date getGmtMotified() {
-        return gmtMotified;
+    public Date getGmtModified() {
+        return gmtModified;
     }
 
-    public void setGmtMotified(Date gmtMotified) {
-        this.gmtMotified = gmtMotified;
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 }
